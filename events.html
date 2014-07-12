@@ -81,7 +81,34 @@ window.onload = createMarkers();
 google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
-
+<script>
+$(function() {
+  $(".button").click(function() {
+    // validate and process form here
+  });
+});
+var eventName = $("input#event-name");
+var eventAddress = $("input#event-address");
+var contactEmail = $("input#contact-email");
+/*
+var checkbox-music = $("input#checkbox-music");
+var checkbox-food = $("input#checkbox-food");
+var checkbox-film = $("input#checkbox-film");
+var checkbox-art = $("input#checkbox-art");
+var checkbox-conference = $("input#checkbox-conference");
+var checkbox-community = $("input#checkbox-community");
+var checkbox-other = $("input#checkbox-other");*/
+var dataString = 'eventName='+ eventName + '&eventAddress='+ eventAddress + '&contactEmail=' + contactEmail;
+$.ajax({
+  type: "POST",
+  url: "10.160.4.133:8080",
+  data: dataString,
+  success: function() {
+    alert("Thanks for submitting your event.");
+  }
+});
+// return false;
+</script>
   </head>
 
   <body class="page-wrapper">
@@ -95,13 +122,13 @@ google.maps.event.addDomListener(window, 'load', initialize);
           <label class="post-event-title">Enter Your Event Details Below</label>
         </div>
         <div class="columns large-4">
-          <input type="text" name="event-name" placeholder="Event name">
+          <input type="text" name="event-name" id="event-name" placeholder="Event name">
         </div>  
         <div class="columns large-4">
-          <input type="text" name="event-address" placeholder="Event Address">
+          <input type="text" name="event-address" id="event-address" placeholder="Event Address">
         </div>  
         <div class="columns large-4">
-          <input type="text" name="contact-email" placeholder="Contact Email">
+          <input type="text" name="contact-email" id="contact-email" placeholder="Contact Email">
         </div>  
       </div>
       <div class="row">
