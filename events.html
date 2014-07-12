@@ -17,7 +17,7 @@
       geocoder = new google.maps.Geocoder();
 
       var mapcenter = new google.maps.LatLng(41.3100, -72.9236);
-      var locations = ["180 York Street New Haven", "Kroon Hall yale New Haven"]
+      var locations = ["180 York Street New Haven", "Kroon Hall yale New Haven", "17 Hill house ave new haven"]
 
       function initialize() { 
 
@@ -109,25 +109,43 @@
 
   <body class="page-wrapper">
     <div class="row">
-      <div class="page-title columns large-12 small-12">Sweet Event Tracker!</div>
+      <div class="page-title columns large-12 small-12">Events in New Haven</div>
     </div>
 
     <div id = "map-canvas"></div>
     <form>
       <div class="row">
-        <div class="columns large-12">
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
           <label class="post-event-title">Enter Your Event Details Below</label>
         </div>
-        <div class="columns large-4">
-          <input type="text" name="event-name" id="event-name" placeholder="Event name">
-        </div>  
-        <div class="columns large-4">
-          <input type="text" name="event-address" id="event-address" placeholder="Event Address">
-        </div>
-        <div class="columns large-4">
-          <input type="text" name="contact-email" id="contact-email" placeholder="Contact Email">
-        </div>
+        <div class="columns large-4">&nbsp;</div>
       </div>
+
+      <div class="row">
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
+          <input type="text" name="eventName" id="eventName" placeholder="Event name">
+        </div>
+        <div class="columns large-4">&nbsp;</div>
+      </div>
+
+      <div class="row">
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
+          <input type="text" name="eventAddress" id="eventAddress" placeholder="Event Address">
+        </div>
+        <div class="columns large-4">&nbsp;</div>
+      </div>
+
+      <div class="row">
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
+          <input type="text" name="contactEmail" id="contactEmail" placeholder="Contact Email">
+        </div>
+        <div class="columns large-4">&nbsp;</div>
+      </div>
+
       <!-- <div class="row">
         <div class="columns large-12">
           <label>Category</label>
@@ -140,23 +158,46 @@
           <input id="checkbox-other" name="category[]" type="checkbox" value="other"><label for="checkbox-other">Other</label>
         </div>
       </div> -->
+
       <div class="row">
-        <div class="columns large-6">
-          <input class="datepicker" name="start-date" placeholder="Start date" />
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
+          <input class="datepicker" type="text" name="startDate" placeholder="Start date">
+          </input>
         </div>
-        <div class="columns large-6">
-          <input type="text" name="start-time" placeholder="Start time">
-        </div>
+        <div class="columns large-4">&nbsp;</div>
       </div>
+
       <div class="row">
-        <div class="columns large-6">
-          <input class="datepicker" name="end-date" placeholder="End date" />
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
+          <input type="text" name="startTime" placeholder="Start time">
         </div>
-        <div class="columns large-6">
-          <input type="text" name="end-time" placeholder="End time"><br>
-        </div>
+        <div class="columns large-4">&nbsp;</div>
       </div>
+
+      <div class="row">
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
+          <input class="datepicker" type="text" name="endDate" placeholder="End date" />
+        </div>
+        <div class="columns large-4">&nbsp;</div>
+      </div>
+
+      <div class="row">
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
+          <input type="text" name="endTime" placeholder="End time"><br>
+        </div>
+        <div class="columns large-4">&nbsp;</div>
+      </div>
+
+      <div class="row">
+        <div class="columns large-4">&nbsp;</div>
+        <div class="columns large-4">
           <input type="submit" name="submit" class="button" value="Submit"><br>
+        </div>
+        <div class="columns large-4"></div>
     </form>  
     <div class="View-event-wrapper">
 
