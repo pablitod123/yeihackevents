@@ -71,11 +71,38 @@
   <script>
     google.maps.event.addDomListener(window, 'load', initialize);
   </script>
-
   <script>
     $(function() {
-      $( "#datepicker" ).datepicker();
+      $( ".datepicker" ).datepicker();
     });
+  </script>
+  <script>
+    $(function() {
+      $(".button").click(function() {
+        // validate and process form here
+      });
+    });
+    var eventName = $("input#event-name");
+    var eventAddress = $("input#event-address");
+    var contactEmail = $("input#contact-email");
+    /*
+    var checkbox-music = $("input#checkbox-music");
+    var checkbox-food = $("input#checkbox-food");
+    var checkbox-film = $("input#checkbox-film");
+    var checkbox-art = $("input#checkbox-art");
+    var checkbox-conference = $("input#checkbox-conference");
+    var checkbox-community = $("input#checkbox-community");
+    var checkbox-other = $("input#checkbox-other");*/
+    var dataString = 'eventName='+ eventName + '&eventAddress='+ eventAddress + '&contactEmail=' + contactEmail;
+    $.ajax({
+      type: "POST",
+      url: "10.160.4.133:8080",
+      data: dataString,
+      success: function() {
+        alert("Thanks for submitting your event.");
+      }
+    });
+    // return false;
   </script>
 
   </head>
@@ -92,16 +119,16 @@
           <label class="post-event-title">Enter Your Event Details Below</label>
         </div>
         <div class="columns large-4">
-          <input type="text" name="event-name" placeholder="Event name">
+          <input type="text" name="event-name" id="event-name" placeholder="Event name">
         </div>  
         <div class="columns large-4">
-          <input type="text" name="event-address" placeholder="Event Address">
+          <input type="text" name="event-address" id="event-address" placeholder="Event Address">
         </div>
         <div class="columns large-4">
-          <input type="text" name="contact-email" placeholder="Contact Email">
-        </div>  
+          <input type="text" name="contact-email" id="contact-email" placeholder="Contact Email">
+        </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
         <div class="columns large-12">
           <label>Category</label>
           <input id="checkbox-music" name="category[]" type="checkbox" value="music"><label for="checkbox-music">Music</label>
@@ -111,12 +138,25 @@
           <input id="checkbox-conference" name="category[]" type="checkbox" value="conference"><label for="checkbox-conference">Conference</label>
           <input id="checkbox-community" name="category[]" type="checkbox" value="community"><label for="checkbox-community">Community</label>          
           <input id="checkbox-other" name="category[]" type="checkbox" value="other"><label for="checkbox-other">Other</label>
-          <input class="inputDate" id="datepicker" name="start-time" placeholder="Start time" />
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="columns large-6">
+          <input class="datepicker" name="start-date" placeholder="Start date" />
+        </div>
+        <div class="columns large-6">
           <input type="text" name="start-time" placeholder="Start time">
-          <input type="text" id="datepicker" name="end-date" placeholder="End date">
-          <input type="text" name="end-time" placeholder="End time"><br>
-          <input type="submit" name="submit" class="button" value="Submit"><br>
+        </div>
       </div>
+      <div class="row">
+        <div class="columns large-6">
+          <input class="datepicker" name="end-date" placeholder="End date" />
+        </div>
+        <div class="columns large-6">
+          <input type="text" name="end-time" placeholder="End time"><br>
+        </div>
+      </div>
+          <input type="submit" name="submit" class="button" value="Submit"><br>
     </form>  
     <div class="View-event-wrapper">
 
