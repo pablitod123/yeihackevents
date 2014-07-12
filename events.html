@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-  <link type="text/css" rel="stylesheet" href='stylesheet.css'>
+
   <link type="text/css" rel="stylesheet" href='foundation-5.3.0/css/foundation.min.css'>
+  <link type="text/css" rel="stylesheet" href='stylesheet.css'>
   <link href='http://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
@@ -82,23 +84,42 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
   </head>
 
-  <body>
+  <body class="page-wrapper">
     <div class="row">
-      <div class="columns large-6 small-12">asdkfjbads;fads;lf</div>
-      <div class="columns large-6 small-12">adsfadsfadsf</div>
+      <div class="page-title columns large-12 small-12">Sweet Event Tracker!</div>
     </div>
     <div id = "map-canvas"></div> 
-    <form class="row">
-      <input type="text" name="event-name" placeholder="Event name" class="columns large-4">
-      <input type="text" name="event-address" placeholder="Event address" class="columns large-4">
-      <input type="text" name="contact-email" placeholder="Email address"  class="columns large-4">
-      <input type="text" name="contact-email" placeholder="Email address"  class="columns large-4">
-      <label type="label" name="category" placeholder="Category"  class="columns large-12">Category</label>
-      <input type="checkbox" name="Music" value="music">
-      <input type="checkbox" name="Conference" value="conference">
-      <input type="checkbox" name="Other" value="other"><br>
-      <input type="submit" name="submit" class="button" value="Submit">
+    <form>
+      <div class="row">
+        <div class="columns large-12">
+          <label class="post-event-title">Enter Your Event Details Below</label>
+        </div>
+        <div class="columns large-4">
+          <input type="text" name="event-name" placeholder="Event name">
+        </div>  
+        <div class="columns large-4">
+          <input type="text" name="event-address" placeholder="Event Address">
+        </div>  
+        <div class="columns large-4">
+          <input type="text" name="contact-email" placeholder="Contact Email">
+        </div>  
+      </div>
+      <div class="row">
+        <div class="columns large-12">
+          <label>Category</label>
+          <input id="checkbox-music" name="category[]" type="checkbox" value="music"><label for="checkbox-music">Music</label>
+          <input id="checkbox-food" name="category[]" type="checkbox" value="food"><label for="checkbox-food">Food</label>
+          <input id="checkbox-film" name="category[]" type="checkbox" value="film"><label for="checkbox-film">Film</label>
+          <input id="checkbox-art" name="category[]" type="checkbox" value="art"><label for="checkbox-art">Art</label>          
+          <input id="checkbox-conference" name="category[]" type="checkbox" value="conference"><label for="checkbox-conference">Conference</label>
+          <input id="checkbox-community" name="category[]" type="checkbox" value="community"><label for="checkbox-community">Community</label>          
+          <input id="checkbox-other" name="category[]" type="checkbox" value="other"><label for="checkbox-other">Other</label><br>
+          <input type="submit" name="submit" class="button" value="Submit">
+      </div>
     </form>  
+    <div class="View-event-wrapper">
+
+    </div>
 
    
   </body>
