@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.5.0/pure-min.css">
+  <link href='//fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+     <style type="text/css">
+    .ui-datepicker {
+    background: white;
+    border: 1px solid #555;
+    color: black;
+  }
+  </style>
+    <script>
+    var $j = jQuery.noConflict();
+    $j(document).ready(function(){
+     $j(function() {
+      $j( ".datepicker" ).datepicker();
+      });
+      });
+    </script>
+    <script>
+    function myFunction() {
+    location.reload();
+    }
+    </script>
+<!-- starting map  -->
+
+
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag "application", media: "all",
+                                           "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+    <%= render 'layouts/shim' %>
+
+
+    <% if full_title(yield(:title)) === "Boola Basements | Requests" %>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <script>
+geocoder = new google.maps.Geocoder();
+
+var mapcenter = new google.maps.LatLng(41.3100, -72.9236);
+var almostlocations = "<%=final2compare()%>";
+var myArray= almostlocations;
+    myArray=myArray.replace(/&quot;/gi,"\"");
+    myArray=myArray.replace(/\[/gi,"");
+    myArray=myArray.replace(/\]/gi,"");
+    myArray=myArray.split(',');
+var locations = myArray;
+
+function initialize() { 
+
+var mapOptions = {
+zoom: 13,
+center: mapcenter,
+mapTypeId: google.maps.MapTypeId.ROADMAP,
+panControl: true,
+  panControlOptions: {
+    position: google.maps.ControlPosition.RIGHT_CENTER
+    },
+ zoomControl: true,
+    zoomControlOptions: {
+        style: google.maps.ZoomControlStyle.SMALL,
+        position: google.maps.ControlPosition.LEFT_CENTER
+    },
+mapTypeControl: true,
+    mapTypeControlOptions: {
+        style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+        position: google.maps.ControlPosition.TOP_CENTER
+    },
+  scaleControl: false,
+
+};
+
+map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+
+var dropPin = function(address) {
+    geocoder.geocode({
+        'address': address},
+        function(results) {
+        var marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+            title: address,
+            animation: google.maps.Animation.DROP,
+        });
+    });
+};
+
+function createMarkers() {
+    for (var j = 0; j < locations.length; j++) {
+    
+      dropPin(locations[j]);
+  
+    }
+}
+
+window.onload = createMarkers();
+}
+
+</script>
+  <script>
+google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+<% end %>
+
+  </head>
+
+  <body>
+    <%= render 'layouts/header' %>
+
+      <% if user_signed_in? %>
+        <!-- Logged in as <strong><%= current_user.name %></strong>. -->
+      <% end %> 
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+  </body>
+</html>
