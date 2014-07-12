@@ -9,7 +9,10 @@
 }
 
 #map-canvas {
-	height: 600px;
+	border-radius: 50%;
+	height: 588px;
+	width: 588px;
+	margin: 0 auto;
 }
 .page-title {
 	font-family: 'Arvo', serif;
@@ -19,6 +22,7 @@
 	color: rgba(246,243,230,1);
 }
 .post-event-title {
+	font-family: 'Arvo', serif;
 	font-size: 30px;
 	text-align: center;
 	color: rgba(246,243,230,1);
