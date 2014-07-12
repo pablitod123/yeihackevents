@@ -88,8 +88,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <div class="columns large-6 small-12">adsfadsfadsf</div>
     </div>
     <div id = "map-canvas"></div> 
-    <input ></input>
-    <button>Submit</button>
+    <form class="row">
+      <input type="text" name="event-name" placeholder="Event name" class="columns large-4">
+      <input type="text" name="event-address" placeholder="Event address" class="columns large-4">
+      <input type="text" name="contact-email" placeholder="Email address"  class="columns large-4">
+      <input type="text" name="contact-email" placeholder="Email address"  class="columns large-4">
+      <label type="label" name="category" placeholder="Category"  class="columns large-12">Category</label>
+      <input type="checkbox" name="Music" value="music">
+      <input type="checkbox" name="Conference" value="conference">
+      <input type="checkbox" name="Other" value="other"><br>
+      <input type="submit" name="submit" class="button" value="Submit">
+    </form>  
 
    
   </body>
