@@ -1,0 +1,7 @@
+body {
+	background: red;
+}
+
+#map-canvas {
+	height: 600px;
+}
